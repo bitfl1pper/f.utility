@@ -2,6 +2,7 @@
   (:require [net.cgrand.enlive-html :as html]))
 
 ;;; this is probably buggy, took from another of my proje, TOFIX
+;;; most of this is from/or inspired by David Nolen's enlive tutorial
 
 (defn text-reader [text-source]
   "This function will accept a text file and form a reader."
