@@ -6,3 +6,6 @@ There are dozens of utilities that I would like to extract from my other project
 / remember to.
 
 
+
+Copyright © 2014 bitfl1pper
+
