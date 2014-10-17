@@ -44,11 +44,11 @@
   [col]
   (count (distinct col)))
 
-;;; Load Stuff
+;;; Load / Read Stuff
 
-(defn loadfile
-  "Load in file for parsing.
-   Adapted from clj cookbook."
+(defn read-file-by-line
+  "Read file, line by line.
+   As seen on stackoverflow!"
   [file]
   (with-open [rdr (clojure.java.io/reader file)]
     (doall (line-seq rdr))))
