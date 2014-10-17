@@ -52,3 +52,17 @@
   [file]
   (with-open [rdr (clojure.java.io/reader file)]
     (doall (line-seq rdr))))
+
+;; File stuff
+
+(defn files
+  "Takes a file path and returns a sequence of
+   Java file objects (the files in dir)"
+  [path]
+  (file-seq (clojure.java.io/file path)))
+
+(defn file-names
+  "Takes a collection of java file objects
+   and returns a list of file names."
+  [fls]
+  (map #(.getName %) fls))
