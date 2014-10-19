@@ -66,3 +66,12 @@
    and returns a list of file names."
   [fls]
   (map #(.getName %) fls))
+
+
+;; other
+
+(defn seefreq
+  "Takes the frequencies of items in a collection, sorts
+   the resulting collection by #, and reverses the list."
+  [col]
+  (reverse (sort-by val (frequencies col))))
