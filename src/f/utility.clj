@@ -4,30 +4,30 @@
 
 ;;; Drop Stuff
 
-(defn drop-nil
+(defn dropnil
   "Drops nil values."
   [col]
-  (filter #(not= nil %) col))
+  (remove nil? col))
 
-(defn drop-if
+(defn dropif
   "Drops values from a collection if they are equal to "
   [val col]
-  (filter #(not= val %) col))
+  (remove #(= val %) col))
 
-(defn drop-if-not
+(defn dropif-not
   "Drops values from a collection if they are not equal to "
   [val col]
   (filter #(= val %) col))
 
-(defn drop-if-less
+(defn dropif-less
   "Drops values that are less than "
   [val col]
-  (filter #(< val %) col))
+  (remove #(> val %) col))
 
-(defn drop-if-greater
+(defn dropif-greater
   "Drops values that are greater than "
   [val col]
-  (filter #(> val %) col))
+  (remove #(< val %) col))
 
 ;;; Uncat
 
@@ -64,7 +64,7 @@
 (defn file-names
   "Takes a collection of java file objects
    and returns a list of file names."
-  [fls]
+  [files]
   (map #(.getName %) fls))
 
 
