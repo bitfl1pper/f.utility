@@ -61,7 +61,7 @@
   [path]
   (file-seq (clojure.java.io/file path)))
 
-(defn file-names
+(defn filenames
   "Takes a collection of java file objects
    and returns a list of file names."
   [files]
@@ -75,3 +75,34 @@
    the resulting collection by #, and reverses the list."
   [col]
   (reverse (sort-by val (frequencies col))))
+
+(defn spitcol
+  "Spit a collection to a file
+   Useful for spiting out returns such as get all links
+
+   fname:   filename
+       f:   function
+     ext:   desired file extension"
+  [filename collection]
+  (spit filename
+        (clojure.string/join (map #(str % "\n") collection))))
+
+(defn tokenize
+  [s]
+  (clojure.string/split s #"\s+"))
+
+(defn tokens-in-col
+  [col]
+  (flatten (map (partial tokenize) col)))
+
+(defn tokens-in-file
+  [file]
+  (drop-empty (tokens-in-col (read-file-by-line file))))
+
+(defn ngram
+  [n col]
+  (partition n 1 col))
+
+(defn ngrams-in-file
+  [n file]
+  (partition n 1 (tokens-in-file file)))
